@@ -2,22 +2,11 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { dataSourceOptions } from './db/data-source';
 import { CoffeesModule } from './modules/coffees/coffees.module';
 
 @Module({
-  imports: [
-    CoffeesModule,
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: '172.16.6.71',
-      port: 5432,
-      username: 'postgres',
-      password: 'adminadmin',
-      database: 'postgres',
-      autoLoadEntities: true,
-      synchronize: true,
-    }),
-  ],
+  imports: [CoffeesModule, TypeOrmModule.forRoot(dataSourceOptions)],
   controllers: [AppController],
   providers: [AppService],
 })
