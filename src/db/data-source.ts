@@ -1,7 +1,7 @@
 // import { join } from 'path';
-import { Event } from 'src/events/entities/event.entity';
-import { Coffee } from 'src/modules/coffees/entities/coffee.entity';
-import { Flavor } from 'src/modules/coffees/entities/flavor.entity';
+// import { Event } from 'src/events/entities/event.entity';
+// import { Coffee } from 'src/modules/coffees/entities/coffee.entity';
+// import { Flavor } from 'src/modules/coffees/entities/flavor.entity';
 import { DataSource, DataSourceOptions } from 'typeorm';
 
 export const dataSourceOptions: DataSourceOptions = {
@@ -11,8 +11,9 @@ export const dataSourceOptions: DataSourceOptions = {
   username: 'postgres',
   password: 'root',
   database: 'postgres',
+  schema: 'public',
   name: 'default',
-  entities: [Coffee, Flavor, Event],
+  entities: ['dist/**/*.entity.js'],
   migrations: ['dist/db/migrations/*.js'],
   synchronize: false,
   migrationsRun: false,
