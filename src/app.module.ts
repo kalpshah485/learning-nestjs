@@ -6,6 +6,7 @@ import { dataSourceOptions } from './db/data-source';
 import { CoffeesModule } from './modules/coffees/coffees.module';
 import { DatabaseModule } from './modules/database/database.module';
 import { ConfigModule } from './config/config.module';
+import { CommonModule } from './common/common.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { ConfigModule } from './config/config.module';
     TypeOrmModule.forRoot(dataSourceOptions),
     DatabaseModule,
     ConfigModule,
+    CommonModule,
   ],
   controllers: [AppController],
   providers: [AppService],
